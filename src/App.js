@@ -17,12 +17,17 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
+    if (
+      this.state.contacts.findIndex((contact) => contact.name === name) !== -1
+    ) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
     const newContact = {
       id: uuidv4(),
       name: name,
       number: number,
     };
-
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts],
     }));

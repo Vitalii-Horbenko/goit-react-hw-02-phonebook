@@ -5,7 +5,14 @@ const ContactsListItem = ({ items }) => {
   return (
     <div>
       {items.map((contact) => {
-        return <li key={uuidv4()}>{`${contact.name}: ${contact.number}`}</li>;
+        return (
+          <li key={uuidv4()}>
+            {`${contact.name}: ${contact.number}`}{" "}
+            <button type="button" name="delete">
+              Delete
+            </button>
+          </li>
+        );
       })}
     </div>
   );
